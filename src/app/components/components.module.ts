@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { PreloadImageModule } from './preload-image/preload-image.module';
+import { PreloadImageModule } from '../shared/preload-image/preload-image.module';
+import { Routes, RouterModule } from '@angular/router';
 
 import { ComponentsPage } from './components.page';
 
@@ -17,8 +17,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    PreloadImageModule,
     FormsModule,
+    PreloadImageModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],

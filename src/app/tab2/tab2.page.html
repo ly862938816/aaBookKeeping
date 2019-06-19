@@ -10,7 +10,8 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let photo of photoService.photos">
-        <preload-image [ratio]="{w:2, h:1}" [src]="photo.data"></preload-image>
+        <!-- <ion-img [src]="photo.data"></ion-img> -->
+        <preload-image [ratio]="{w:1, h:1}" [src]="photo.data"></preload-image>
       </ion-col>
     </ion-row>
   </ion-grid>
