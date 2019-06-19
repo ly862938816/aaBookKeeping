@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PreloadImageModule } from '../shared/preload-image/preload-image.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 import { Tab2Page } from './tab2.page';
@@ -12,8 +12,8 @@ import { Tab2Page } from './tab2.page';
   imports: [
     IonicModule,
     CommonModule,
-    PreloadImageModule,
     FormsModule,
+    SharedModule,
     RouterModule.forChild([{ path: '', component: Tab2Page }]),
   ],
   declarations: [
