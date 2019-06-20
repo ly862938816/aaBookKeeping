@@ -1,20 +1,41 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      哈雷摩托
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row>
+  <ion-card class="welcome-card">
+    <preload-image [ratio]="{w:2, h:1}" [src]="'https://placeimg.com/200/100/any'"></preload-image>
+    <ion-card-header>
+      <ion-card-subtitle>Get Started</ion-card-subtitle>
+      <ion-card-title>Welcome to Ionic</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Now that your app has been created, you'll want to start building out features and components. Check out some
+        of
+        the resources below for next steps.</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-row *ngFor="let item of routeResolveData?.items" style="background-color: #FFF; padding: 10px;">
       <ion-col size="4">
-        <app-image-shell [src]="" [alt]=""></app-image-shell>
+        <div class="image-shell">
+          <img [src]="item?.image" alt="Sample Image" style="width: 100%; height: 100%;" />
+        </div>
       </ion-col>
       <ion-col size="8">
-        <app-text-shell [data]="" lines="3"></app-text-shell>
+        <h3 class="text-shell bouncing-animation" style="margin-top: 0px; min-height: 16px;"
+          [ngClass]="{'text-loaded': item?.title}">
+          {{ item?.title }}
+        </h3>
+        <p class="text-shell bouncing-animation" style="min-height: 35px;"
+          [ngClass]="{'text-loaded': item?.description}">
+          {{ item?.description }}
+        </p>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-card>
 </ion-content>

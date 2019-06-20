@@ -1,20 +1,34 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
+import { MotoShellResolver } from './moto.resolver';
 import { Tab3Page } from './tab3.page';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: Tab3Page,
+    resolve: {
+      data: MotoShellResolver
+    }
+  }
+];
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
+    HttpClientModule,
     FormsModule,
     SharedModule,
-    RouterModule.forChild([{ path: '', component: Tab3Page }])
+    RouterModule.forChild(routes)
   ],
-  declarations: [Tab3Page]
+  declarations: [Tab3Page],
+  providers: [MotoShellResolver]
 })
 export class Tab3PageModule {}
