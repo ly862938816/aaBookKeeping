@@ -8,14 +8,14 @@ import { Component, Input, HostBinding } from '@angular/core';
   ]
 })
 export class TextShellComponent {
-  _data: '';
+  dataText: '';
 
   @HostBinding('class.text-loaded') textLoaded = false;
 
   @Input() set data(val: any) {
-    this._data = (val !== undefined && val !== null) ? val : '';
+    this.dataText = (val !== undefined && val !== null) ? val : '';
 
-    if (this._data && this._data !== '') {
+    if (this.dataText && this.dataText !== '') {
       this.textLoaded = true;
     } else {
       this.textLoaded = false;

@@ -1,3 +1,4 @@
+
 import { Component, Input, HostBinding } from '@angular/core';
 
 @Component({
@@ -8,19 +9,19 @@ import { Component, Input, HostBinding } from '@angular/core';
   ]
 })
 export class ImageShellComponent {
-  _src = '';
-  _alt = '';
+  srcImage = '';
+  altImage = '';
 
   @HostBinding('class.img-loaded') imageLoaded = false;
 
   @Input()
   set src(val: string) {
-    this._src = (val !== undefined && val !== null) ? val : '';
+    this.srcImage = (val !== undefined && val !== null) ? val : '';
   }
 
   @Input()
   set alt(val: string) {
-    this._alt = (val !== undefined && val !== null) ? val : '';
+    this.altImage = (val !== undefined && val !== null) ? val : '';
   }
 
   constructor() {}
