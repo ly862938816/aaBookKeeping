@@ -29,7 +29,7 @@ export class ProgressiveShellResolverPage implements OnInit {
 
       if (promiseObservable) {
         promiseObservable.subscribe(promiseValue => {
-          const dataObservable = promiseValue['data'];
+          const dataObservable = promiseValue.data;
           console.log('Progressive Shell Resovlers - Subscribe to promiseObservable => dataObservable: ', dataObservable);
 
           if (dataObservable) {

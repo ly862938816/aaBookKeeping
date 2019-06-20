@@ -8,7 +8,6 @@ import { SharedModule } from '../shared/shared.module';
 
 import { ProgressiveShellResolverPage } from './progressive-shell-resolver.page';
 import { ProgressiveShellResolver } from './progressive-shell.resolver';
-import { importExpr } from '@angular/compiler/src/output/output_ast';
 
 const routes: Routes = [
   {
