@@ -21,6 +21,8 @@ export class MotoShellResolver implements Resolve<any> {
     const shellModel: ItemsListItem = new ItemsListItem(true);
     const dataObservable = this.productItemsService.getProductList();
 
+    console.log(dataObservable);
+
     const shellProvider = new ShellProvider(
       shellModel,
       dataObservable

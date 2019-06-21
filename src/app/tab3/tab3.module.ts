@@ -6,7 +6,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
-import { MotoShellResolver } from './moto.resolver';
+// import { MotoShellResolver } from './moto.resolver';
+import { ProgressiveShellResolver } from '../shell/progressive-shell.resolver';
 import { Tab3Page } from './tab3.page';
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
     path: '',
     component: Tab3Page,
     resolve: {
-      data: MotoShellResolver
+      data: ProgressiveShellResolver
     }
   }
 ];
@@ -29,6 +30,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [Tab3Page],
-  providers: [MotoShellResolver]
+  providers: [ProgressiveShellResolver]
 })
 export class Tab3PageModule {}
