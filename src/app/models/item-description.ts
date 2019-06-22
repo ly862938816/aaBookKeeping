@@ -35,4 +35,5 @@ export class ItemDescription {
     isDestroyed: boolean;
     isOrderable: boolean;
     isMaster?: boolean;
+    isShell?: boolean;
 }

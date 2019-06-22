@@ -16,7 +16,7 @@ export class ShellProvider<T> {
   // To debug shell styles, change configuration in the environment.ts file
   private debugMode = false;
 
-  constructor(shellModel: T, dataObservable: Observable<Array<T>>) {
+  constructor(shellModel: T, dataObservable: Observable<T>) {
     // tslint:disable-next-line:max-line-length
     const shellClassName = (shellModel && shellModel.constructor && shellModel.constructor.name) ? shellModel.constructor.name : 'No Class Name';
 
@@ -42,9 +42,9 @@ export class ShellProvider<T> {
     .pipe(
       // finalize(() => console.log('forkedObservables COMPLETED'))
     )
-    .subscribe(([delayValue, dataValue]: [boolean, T[]]) => {
+    .subscribe(([delayValue, dataValue]: [boolean, T]) => {
       if (!this.debugMode) {
-        this.privateSubject.next(dataValue[0]);
+        this.privateSubject.next(dataValue);
         // tslint:disable-next-line:no-console
         console.timeEnd('[' + shellClassName + '] ShellProvider roundtrip');
       }

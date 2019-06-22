@@ -12,6 +12,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
+            // loadChildren: '../tab1/tab1.module#Tab1PageModule'
             loadChildren: '../shell/progressive-shell-resolver.module#ProgressiveShellResolverPageModule'
           }
         ]

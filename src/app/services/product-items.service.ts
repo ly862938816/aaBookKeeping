@@ -3,10 +3,9 @@ import { Observable } from 'rxjs/';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
-
 import { ApiProvider } from './api.service';
 import { AppConst } from '../models/model';
-import { ItemsListItem } from '../models/items-list-item';
+import { ItemsListShell } from '../models/items-list-shell.model';
 import { ItemDescription } from '../models/item-description';
 
 @Injectable({
@@ -21,7 +20,7 @@ export class ProductItemsService {
   constructor(private apiProvider: ApiProvider) { }
 
   // 使用apiProvider的实例获取最新产品列表数据
-  getItemsList(): Observable<Array<ItemsListItem>> {
+  getItemsList(): Observable<Array<ItemsListShell>> {
     const itemsListUrl: string = this.storeApiPath + AppConst.STORE_API_PATHS.getItems;
     return this.apiProvider.httpGet(itemsListUrl)
       .pipe(
@@ -39,14 +38,16 @@ export class ProductItemsService {
   }
 
   // 获取所有产品列表
-  getProductList(): Observable<Array<ItemsListItem>> {
+  getProductList(): Observable<any> {
     const productsListUrl: string = this.storeApiPath + AppConst.STORE_API_PATHS.getProducts;
     return this.apiProvider.httpGet(productsListUrl)
-      .pipe(
-        map((res: any) => {
-          if (res) {
-            return res;
-          }
-        }));
+    .pipe(
+      map((res: any) => {
+        const pageData = {
+          items: []
+        };
+        pageData.items = res;
+        return pageData;
+      }));
   }
 }

@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { ItemsListItem } from '../models/items-list-item';
+import { ItemsListShell } from '../models/items-list-shell.model';
 
 
 @Component({
@@ -13,7 +13,7 @@ import { ItemsListItem } from '../models/items-list-item';
   ]
 })
 export class Tab3Page implements OnInit {
-  routeResolveData: ItemsListItem;
+  routeResolveData: ItemsListShell;
 
   constructor(private route: ActivatedRoute) {}
 

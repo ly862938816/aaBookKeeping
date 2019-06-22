@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  storeApiPath: 'http://localhost:3000',
-  networkDelay: 2000
+  storeApiPath: 'http://192.168.18.75:3000',
+  networkDelay: 0
 };
 
 /*
