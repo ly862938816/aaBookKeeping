@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+import { PreloadImageComponent } from '../shared/preload-image/preload-image.component';
 import { ItemsListShell } from '../models/items-list-shell.model';
 
 
@@ -18,7 +19,7 @@ export class Tab3Page implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log('Moto Shell Resovlers - ngOnInit()');
+    // console.log('Moto Shell Resovlers - ngOnInit()');
 
     if (this.route && this.route.data) {
       // We resolved a promise for the data Observable
@@ -34,7 +35,7 @@ export class Tab3Page implements OnInit {
             dataObservable.subscribe(observableValue => {
               const pageData = observableValue;
               // tslint:disable-next-line:max-line-length
-              console.log('Moto Shell Resovlers - Subscribe to dataObservable (can emmit multiple values) => PageData (' + ((pageData && pageData.isShell) ? 'SHELL' : 'REAL') + '): ', pageData);
+              // console.log('Moto Shell Resovlers - Subscribe to dataObservable (can emmit multiple values) => PageData (' + ((pageData && pageData.isShell) ? 'SHELL' : 'REAL') + '): ', pageData);
               // As we are implementing an App Shell architecture, pageData will be firstly an empty shell model,
               // and the real remote data once it gets fetched
               if (pageData) {

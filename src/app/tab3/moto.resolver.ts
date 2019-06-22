@@ -4,7 +4,7 @@ import { Resolve } from '@angular/router';
 
 import { ItemsListShell } from '../models/items-list-shell.model';
 import { ProductItemsService } from '../services/product-items.service';
-import { ShellProvider } from './shell.provider';
+import { ShellProvider } from '../services/shell.provider';
 
 
 @Injectable()

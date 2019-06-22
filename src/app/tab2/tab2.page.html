@@ -8,10 +8,16 @@
 
 <ion-content>
   <ion-grid>
+    <ion-row *ngIf="!routeResolveData">
+      <ion-col size="6" *ngFor="let photo of photoShellData">
+        <app-image-shell  [src]="photo?.data"></app-image-shell>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="routeResolveData">
     <ion-row>
-      <ion-col size="6" *ngFor="let photo of photoService.photos">
-        <!-- <ion-img [src]="photo.data"></ion-img> -->
-        <preload-image [ratio]="{w:1, h:1}" [src]="photo.data"></preload-image>
+      <ion-col size="6" *ngFor="let photo of photoService?.photos">
+        <preload-image [ratio]="{w:1, h:1}" [src]="photo?.data"></preload-image>
       </ion-col>
     </ion-row>
   </ion-grid>

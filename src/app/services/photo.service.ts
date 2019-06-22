@@ -1,12 +1,10 @@
-import { Injectable } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Storage } from '@ionic/storage';
+import { from } from 'rxjs';
 
-
-
-class Photo {
-  data: any;
-}
+import { Photo } from '../models/photo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -38,10 +36,8 @@ export class PhotoService {
 
   }
 
-  loadSaved() {
-    this.storage.get('photos').then((photos) => {
-      this.photos = photos || [];
-    });
+  loadSaved(): Observable<any> {
+    return from(this.storage.get('photos'));
   }
 
 }

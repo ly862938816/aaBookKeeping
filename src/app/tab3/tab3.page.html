@@ -17,18 +17,19 @@
       <p>摩托车的存在就是让所有类型的骑手在道路上释放自由与个性。外面的世界无限广阔，114立方英寸强悍发动机，带你追逐地平线，纵情体验一路疾驰的畅快感受</p>
     </ion-card-content>
   </ion-card>
-  <ion-card>
-    <ion-row *ngFor="let item of routeResolveData?.items" style="background-color: #FFF; padding: 10px;">
+  <ion-card *ngFor="let item of routeResolveData?.items">
+    <ion-row  style="background-color: #FFF; padding: 10px;">
       <ion-col size="4">
-        <div class="image-shell">
-          <img [src]="item?.thumbnail?.secure_url" alt="Sample Image" style="width: 100%; height: 60%;" />
+        <div class="">
+          <!-- <img [src]="item?.thumbnail?.secure_url" alt="Sample Image" /> -->
+          <preload-image [ratio]="{w:4, h:3}" [src]="item?.thumbnail?.secure_url"></preload-image>
         </div>
       </ion-col>
       <ion-col size="8">
-        <h3 class="text-shell bouncing-animation" style="margin-top: 0px; min-height: 16px;"
+        <h4 class="text-shell bouncing-animation" style="margin-top: 0px; min-height: 16px;"
           [ngClass]="{'text-loaded': item?.title}">
           {{ item?.title }}
-        </h3>
+        </h4>
         <div class="text-shell bouncing-animation" style="min-height: 35px;"
           [ngClass]="{'text-loaded': item?.title}">
           {{ item?.price | currency:'CNY':'symbol-narrow'}}
@@ -38,6 +39,9 @@
           {{ item?.productBrief }}
         </div>
       </ion-col>
+    </ion-row>
+    <ion-row>
+      
     </ion-row>
   </ion-card>
 </ion-content>
