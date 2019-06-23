@@ -1,0 +1,32 @@
+.image-shell {
+    padding-bottom: 100%;
+    height: 100px; 
+    position: relative;
+  
+    // The animation that goes beneath the masks
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background:
+        linear-gradient(to right, #EEE 8%, #DDD 18%, #EEE 33%);
+      background-size: 800px 104px;
+      animation: animateBackground 2s ease-in-out infinite;
+    }
+  
+    & > img {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+  
+      &[src=""],
+      &[src="null"] {
+        display: none;
+      }
+    }
+  }

@@ -36,12 +36,13 @@ export interface INotifyConifg {
 
 export class AppConst {
     public static readonly STORE_API_PATHS = {
-        userCheck: '/api/usercheck',
+        buyItems: '/people',
         getMenuItems: '/api/menuitems',
         getItems: '/api/newModelItems',
-        itemDescription: '/api/newModelItems/{{id}}',
         getProducts: '/api/productlist',
-        buyItems: '/people',
+        itemDescription: '/api/newModelItems/{{id}}',
+        savePhotos: '/api/savePhotos',
+        userCheck: '/api/usercheck',
         verfiyVoucher: '/people'
     };
 
