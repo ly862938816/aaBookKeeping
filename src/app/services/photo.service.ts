@@ -63,6 +63,12 @@ export class PhotoService {
     return this.apiProvider.httpPost(serverUrl, photos);
   }
 
+  loadSaved() {
+    this.storage.get('photos').then((photos) => {
+      this.photos = photos || [];
+    });
+  }
+
   loadSavedObservable(): Observable<any> {
     return from(this.storage.get('photos')).pipe(
       map((res: any) => {

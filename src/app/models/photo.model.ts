@@ -5,11 +5,6 @@ export class Photo {
 
 export class PhotoListShell {
     items: Array<Photo> = [
-      new Photo(),
-      new Photo(),
-      new Photo(),
-      new Photo(),
-      new Photo(),
       new Photo()
     ];
     constructor(readonly isShell: boolean) {}

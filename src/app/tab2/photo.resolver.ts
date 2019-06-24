@@ -7,8 +7,6 @@ import { PhotoListShell } from '../models/photo.model';
 import { ShellProvider } from '../services/shell.provider';
 
 
-
-
 @Injectable()
 export class PhotoShellResolver implements Resolve<any> {
 
