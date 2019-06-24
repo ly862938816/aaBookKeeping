@@ -1,11 +1,14 @@
-import { NgModule } from '@angular/core';
+import { ActionSheet } from '@ionic-native/action-sheet/ngx';
 import { BrowserModule } from '@angular/platform-browser';
 import { Camera } from '@ionic-native/camera/ngx';
+import { Crop } from '@ionic-native/crop/ngx';
+import { FullScreenImage } from '@ionic-native/full-screen-image/ngx';
 import { HttpClientModule } from '@angular/common/http';
-import { IonicStorageModule } from '@ionic/storage';
-import { RouteReuseStrategy } from '@angular/router';
-
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicStorageModule } from '@ionic/storage';
+import { NgModule } from '@angular/core';
+import { RouteReuseStrategy } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -19,9 +22,13 @@ import { AppComponent } from './app.component';
     IonicStorageModule.forRoot()
   ],
   providers: [
+    ActionSheet,
+    Camera,
+    Crop,
+    FullScreenImage,
+    ImagePicker,
     StatusBar,
     SplashScreen,
-    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
