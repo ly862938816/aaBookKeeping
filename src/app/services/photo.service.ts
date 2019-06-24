@@ -2,11 +2,13 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Observable } from 'rxjs/';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { from } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { AppConst } from '../models/model';
 import { ApiProvider } from '../services/api.service';
 import { environment } from '../../environments/environment';
-import { Photo } from '../models/photo.model';
+import { Photo, PhotoListShell } from '../models/photo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -55,14 +57,20 @@ export class PhotoService {
 
   }
 
+  // TODO
   savePictureToServer(photos: Photo[]): Observable<any> {
     const serverUrl = this.storeApiPath + AppConst.STORE_API_PATHS.savePhotos;
-
     return this.apiProvider.httpPost(serverUrl, photos);
-
   }
 
-  loadSaved() {
-   return this.storage.get('photos');
-  }
+  loadSavedObservable(): Observable<any> {
+    return from(this.storage.get('photos')).pipe(
+      map((res: any) => {
+        const pageData = {
+          items: []
+        };
+        pageData.items = res;
+        return pageData;
+      }));
+   }
 }

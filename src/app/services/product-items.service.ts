@@ -42,6 +42,7 @@ export class ProductItemsService {
     const productsListUrl: string = this.storeApiPath + AppConst.STORE_API_PATHS.getProducts;
     return this.apiProvider.httpGet(productsListUrl)
     .pipe(
+      // 把返回的数据，组合成ItemsListShell模型格式
       map((res: any) => {
         const pageData = {
           items: []

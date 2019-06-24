@@ -11,7 +11,9 @@ import { Tab2Page } from './tab2.page';
 const routes: Routes = [{
   path: '',
   component: Tab2Page,
-  data: PhotoShellResolver
+  resolve: {
+    data: PhotoShellResolver
+  }
 }];
 
 @NgModule({
